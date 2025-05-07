@@ -1,0 +1,163 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "animate.css";
+
+:root {
+  --primary-blue: #0066cc;
+  --secondary-blue: #003366;
+  --accent-blue: #4d94ff;
+  --success-green: #10b981;
+  --warning-orange: #f59e0b;
+  --background-light: #f0f7ff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Remove this line: overflow: hidden; */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.centered-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.full-screen-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Change from height to min-height */
+  width: 100%;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.animate__animated {
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.logged-in {
+  transition: all 0.3s ease-in-out;
+}
+
+.logged-in .full-screen-layout {
+  animation: expandToFullScreen 0.3s ease-in-out forwards;
+}
+
+@keyframes expandToFullScreen {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* PWA specific styles */
+.pwa-install-prompt {
+  border-left: 4px solid var(--primary-blue);
+}
+
+.offline-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+
+  .btn {
+    padding: 0.375rem 0.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .container-fluid {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+}
+
+/* Fix for iOS Safari 100vh issue - improve the existing rule */
+@supports (-webkit-touch-callout: none) {
+  .full-screen-layout,
+  .app-container {
+    height: auto;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Ensure main content area scrolls properly */
+main.flex-grow-1 {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  flex: 1 0 auto; /* Don't shrink, allow growing */
+}

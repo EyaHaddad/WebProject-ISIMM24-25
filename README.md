@@ -1,1 +1,2 @@
 # WebProject-ISIMM24-24
+Ce projet vise à développer une application web destinée aux administrateurs et une version mobile dédiée aux enseignants et étudiants pour la consultation. Il permet non seulement de générer automatiquement les plannings, mais également d’assurer la validation par les responsables académiques et la diffusion des informations via des notifications et e-mails. Ce document présente les spécifications fonctionnelles et techniques du projet, les cas d’utilisation prévus, ainsi que les exigences non fonctionnelles et les interfaces utilisateurs envisagées.
